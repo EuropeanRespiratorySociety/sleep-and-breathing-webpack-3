@@ -1,5 +1,7 @@
-# ERS Design proof of concept
-This is a quick test on design posibilities to explore in order to improve the usability of the website.
+# Sleep and Breathing website
+Website for the Sleep and Breathing Conference 2018
+
+* It will integrate with Cloud CMS for the content and menus will be managed from there too.
 
 > A Vue.js project
 
