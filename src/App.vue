@@ -14,7 +14,7 @@
       <v-parallax src="https://www.ersnet.org/assets/preview/node/o:383143a9427e5caae1bb?name=image1800&size=1800"></v-parallax>
     </v-card>
     <sleep-navigation :drawer="drawer"></sleep-navigation>
-    <main>
+    <main id="main-container">
       <router-view></router-view>
     </main>
     <sleep-footer></sleep-footer>
@@ -62,5 +62,9 @@
   .transparent {
     background: transparent;
     background-size: cover;
+  }
+
+  #main-container {
+    margin-bottom: 80px;
   }
 </style>
