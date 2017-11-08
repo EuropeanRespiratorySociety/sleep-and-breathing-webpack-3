@@ -7,15 +7,15 @@
       light class="primary transparent elevation-0" 
       v-scroll="onScroll"
       prominent>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="drawerState = !drawerState"></v-toolbar-side-icon>
       <v-toolbar-title>Title</v-toolbar-title>  
     </v-toolbar>
     <v-card app class="grey lighten-5" flat>
       <v-parallax src="https://www.ersnet.org/assets/preview/node/o:383143a9427e5caae1bb?name=image1800&size=1800"></v-parallax>
     </v-card>
-    <sleep-navigation :drawer="drawer"></sleep-navigation>
+    <sleep-navigation :drawer-state="drawerState"></sleep-navigation>
     <main id="main-container">
-      <router-view></router-view>
+        <router-view></router-view>
     </main>
     <sleep-footer></sleep-footer>
   </v-app>
@@ -32,7 +32,7 @@
         offsetTop: 0,
         height: 600,
         rightDrawer: false,
-        drawer: true
+        drawerState: true
       }
     },
     methods: {
@@ -65,6 +65,6 @@
   }
 
   #main-container {
-    margin-bottom: 80px;
+    margin-bottom: 55px;
   }
 </style>

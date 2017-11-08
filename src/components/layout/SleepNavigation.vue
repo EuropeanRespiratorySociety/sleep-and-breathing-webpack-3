@@ -51,11 +51,12 @@
 <script>
   export default {
     name: 'sleep-navigation',
-    props: {drawer: {type: Boolean, required: true}},
+    props: ['drawerState'],
     data () {
       return {
         fixed: false,
         mini: false,
+        drawer: this.drawerState,
         items: [
           { title: 'Home', icon: 'dashboard' },
           { title: 'About', icon: 'question_answer' }

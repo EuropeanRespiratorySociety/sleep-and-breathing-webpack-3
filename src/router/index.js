@@ -9,7 +9,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Simple',
+      redirect: '/news'
+    },
+    {
+      path: '/:slug',
+      name: 'News',
+      component: Simple
+    },
+    {
+      path: '/:slug/page/:id',
+      name: 'PaginatedNews',
       component: Simple
     }
   ]
