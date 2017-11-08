@@ -3,9 +3,11 @@
         app
         enable-resize-watcher
         persistent
-        v-model="drawer" 
+        :value="drawer" 
         :mini-variant="mini" 
-        light>
+        light
+        @input="checkToggleState"
+        >
       <v-list class="pa-1">
         <v-list-tile v-if="mini" @click.stop="mini = !mini">
               <v-list-tile-action>
@@ -17,7 +19,7 @@
                 <img src="https://randomuser.me/api/portraits/men/85.jpg" />
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title>John Leider</v-list-tile-title>
+                <v-list-tile-title>Sleep and Breathing</v-list-tile-title>
               </v-list-tile-content>
               <v-list-tile-action>
                 <v-btn icon @click.stop="mini = !mini">
@@ -49,21 +51,30 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'sleep-navigation',
-    props: ['drawerState'],
     data () {
       return {
         fixed: false,
         mini: false,
-        drawer: this.drawerState,
         items: [
           { title: 'Home', icon: 'dashboard' },
           { title: 'About', icon: 'question_answer' }
         ],
         right: null
       }
-    }
+    },
+    methods: {
+      checkToggleState (e) {
+        if (!e) this.$store.dispatch('TOGGLE_DRAWER')
+      }
+    },
+    computed:
+      mapState([
+        'drawer'
+      ])
   }
 </script>
 
