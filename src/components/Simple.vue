@@ -23,8 +23,8 @@
         </v-card>
         
         <v-container grid-list-md>
-          <v-layout v-if="posts && posts.length" row wrap>
-            <v-flex v-for="post of posts" xs12 sm6 :key="post.slug">
+          <v-layout v-if="news && news.length" row wrap>
+            <v-flex v-for="post of news" xs12 sm6 :key="post.slug">
               <v-card>
                 <v-card-media v-if="post.image" :src="post.image" height="200px">
                 </v-card-media>
@@ -53,20 +53,11 @@
 </template>
 
 <script>
-  import { HTTP } from '../helpers/http'
-
   export default {
     name: 'Simple',
     data () {
       return {
-        fixed: false,
-        category: {},
-        posts: [],
-        errors: [],
-        length: 0,
-        page: 1,
-        skip: 0,
-        limit: 25
+        fixed: false
       }
     },
 
@@ -81,25 +72,42 @@
       }
     },
 
+    computed: {
+      news () {
+        return this.$store.state.news
+      },
+      skip () {
+        return this.$store.state.skip
+      },
+      limit () {
+        return this.$store.state.limit
+      },
+      category () {
+        return this.$store.state.category
+      },
+      length () {
+        return this.$store.state.length
+      },
+      page: {
+        get () {
+          return this.$store.state.pageNumber
+        },
+        set (val) {
+          this.$store.dispatch('PAGE_NUMBER', val)
+        }
+
+      }
+    },
+
     methods: {
       fetchData () {
-        const p = parseInt(this.$route.params.id)
-        if (p > 1) {
-          this.page = p
-          this.skip = this.limit * this.page
+        const payload = {
+          pageNumber: parseInt(this.$route.params.id) || this.page,
+          slug: this.$route.params.slug,
+          limit: this.$store.state.limit,
+          skip: this.$store.state.skip
         }
-        HTTP
-          .get(`${this.$route.params.slug}?limit=25&skip=${this.skip}`)
-          .then(response => {
-            this.posts = response.data.data
-            this.category = response.data.category[0]
-            this.skip = response.data._sys.skip
-            this.limit = response.data._sys.limit
-            this.length = Math.ceil(response.data._sys.total / this.limit)
-          })
-          .catch(e => {
-            this.errors.push(e)
-          })
+        this.$store.dispatch('GET_NEWS', payload)
       }
     }
 
