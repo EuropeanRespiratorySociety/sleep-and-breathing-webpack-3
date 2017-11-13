@@ -23,6 +23,7 @@
 <script>
   import SleepFooter from './components/layout/SleepFooter'
   import SleepNavigation from './components/layout/SleepNavigation'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'App',
@@ -35,8 +36,12 @@
       }
     },
     methods: {
+      ...mapActions([
+        'toggleDrawer'
+      ]),
+
       toggle (item) {
-        this.$store.dispatch('TOGGLE_DRAWER')
+        this.toggleDrawer()
       },
 
       onScroll (e) {

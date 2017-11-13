@@ -53,6 +53,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
     name: 'Simple',
     data () {
@@ -93,13 +94,17 @@
           return this.$store.state.pageNumber
         },
         set (val) {
-          this.$store.dispatch('PAGE_NUMBER', val)
+          this.pageNumber(val)
         }
 
       }
     },
 
     methods: {
+      ...mapActions([
+        'getNews',
+        'pageNumber'
+      ]),
       fetchData () {
         const payload = {
           pageNumber: parseInt(this.$route.params.id) || this.page,
@@ -107,7 +112,7 @@
           limit: this.$store.state.limit,
           skip: this.$store.state.skip
         }
-        this.$store.dispatch('GET_NEWS', payload)
+        this.getNews(payload)
       }
     }
 

@@ -51,7 +51,7 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     name: 'sleep-navigation',
@@ -67,8 +67,11 @@
       }
     },
     methods: {
+      ...mapActions([
+        'toggleDrawer'
+      ]),
       checkToggleState (e) {
-        if (!e) this.$store.dispatch('TOGGLE_DRAWER')
+        if (!e) this.toggleDrawer()
       }
     },
     computed:
