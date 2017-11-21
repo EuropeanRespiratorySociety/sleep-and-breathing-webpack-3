@@ -8,7 +8,7 @@
       v-scroll="onScroll"
       prominent>
       <v-toolbar-side-icon @click.stop="toggle()"></v-toolbar-side-icon>
-      <v-toolbar-title>Title</v-toolbar-title>  
+      <v-toolbar-title>Sleep and Breathing </v-toolbar-title>  
     </v-toolbar>
     <v-card app class="grey lighten-5" flat>
       <v-parallax src="https://www.ersnet.org/assets/preview/node/o:383143a9427e5caae1bb?name=image1800&size=1800"></v-parallax>
@@ -20,6 +20,7 @@
     <sleep-footer></sleep-footer>
   </v-app>
 </template>
+
 <script>
   import SleepFooter from './components/layout/SleepFooter'
   import SleepNavigation from './components/layout/SleepNavigation'
@@ -75,4 +76,5 @@
   #main-container {
     margin-bottom: 55px;
   }
+
 </style>

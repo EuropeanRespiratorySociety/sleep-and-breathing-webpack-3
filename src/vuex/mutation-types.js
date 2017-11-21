@@ -1,3 +1,6 @@
 export const SET_DRAWER = 'SET_DRAWER'
 export const SET_NEWS = 'SET_NEWS'
+export const SET_CATEGORY = 'SET_CATEGORY'
+export const SET_ARTICLE = 'SET_ARTICLE'
+export const SET_HOME = 'SET_HOME'
 export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER'

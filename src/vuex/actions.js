@@ -29,6 +29,61 @@ export const getNews = ({ commit, dispatch }, payload) => {
   })
 }
 
+export const getCategory = ({ commit, dispatch }, payload) => {
+  let data = {skip: 0, pageNumber: 1}
+  let qname = ''
+
+  switch (payload.request) {
+    case 'programme':
+      qname = 'o:f730239a8b20c4024d7f'
+      break
+    default:
+      qname = 'o:120ab483a2d8502c4947' // home
+  }
+
+  const route = `sleepandbreathing?qname=${qname}`
+  HTTP
+  .get(route)
+  .then(response => {
+    data.items = response.data.data
+    data.category = response.data.category[0]
+    data.skip = response.data._sys.skip
+
+    dispatch('pageNumber', data.pageNumber)
+    commit(types.SET_CATEGORY, data, err => { console.log(err) })
+  })
+  .catch(e => {
+    console.log(e)
+  })
+}
+
+export const getArticle = ({ commit, dispatch }, payload) => {
+  const route = `sleepandbreathing/${payload.slug}`
+  let data = {}
+
+  HTTP
+  .get(route)
+  .then(response => {
+    data.item = response.data
+    commit(types.SET_ARTICLE, data, err => { console.log(err) })
+    // commit something
+  }).catch(e => {
+    console.log(e)
+  })
+}
+
+export const getHome = ({ commit, dispatch }, payload) => {
+  const route = `sleepandbreathing/`
+  HTTP
+  .get(route)
+  .then(response => {
+    // will do something
+    // commit something
+  }).catch(e => {
+    console.lof(e)
+  })
+}
+
 export const pageNumber = ({commit}, payload) => {
   commit(types.SET_PAGE_NUMBER, payload, err => { console.log(err) })
 }

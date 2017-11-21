@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Simple from '@/components/Simple'
+import Category from '@/components/Category'
+import Article from '@/components/Article'
 
 Vue.use(Router)
 
@@ -9,17 +10,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/news'
+      name: 'Home',
+      component: Category
     },
     {
-      path: '/:slug',
-      name: 'News',
-      component: Simple
+      path: '/programme',
+      name: 'Programme',
+      component: Category
     },
     {
-      path: '/:slug/page/:id',
-      name: 'PaginatedNews',
-      component: Simple
+      path: '/articles/:slug',
+      name: 'Article',
+      component: Article
     }
   ]
 })

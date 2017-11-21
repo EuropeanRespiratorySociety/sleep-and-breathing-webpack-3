@@ -19,7 +19,8 @@ export default new Vuex.Store({
   state: {
     drawer: false,
     category: {},
-    news: [],
+    articles: [],
+    article: {},
     pageNumber: 1,
     skip: 0,
     limit: 25,
