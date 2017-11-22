@@ -1,8 +1,12 @@
 import * as types from './mutation-types'
 
 export default {
-  [types.SET_DRAWER] (state) {
+  [types.TOGGLE_DRAWER] (state) {
     state.drawer = !state.drawer
+  },
+
+  [types.SET_DRAWER] (state, data) {
+    state.drawer = data
   },
 
   [types.SET_NEWS] (state, data) {

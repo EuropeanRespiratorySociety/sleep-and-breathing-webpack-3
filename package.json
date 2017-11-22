@@ -1,7 +1,7 @@
 {
-  "name": "ers-design-poc",
+  "name": "sleep-and-breathing-conference",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Web site for the Sleep and Breating Conference",
   "author": "idealley <samuelpouyt@gmail.com>",
   "private": true,
   "scripts": {

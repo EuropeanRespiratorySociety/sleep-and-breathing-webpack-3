@@ -2,7 +2,11 @@ import * as types from './mutation-types'
 import { HTTP } from '../helpers/http'
 
 export const toggleDrawer = ({ commit }) => {
-  commit(types.SET_DRAWER, err => { console.log(err) })
+  commit(types.TOGGLE_DRAWER, err => { console.log(err) })
+}
+
+export const setDrawer = ({ commit }, data) => {
+  commit(types.SET_DRAWER, data, err => { console.log(err) })
 }
 
 export const getNews = ({ commit, dispatch }, payload) => {

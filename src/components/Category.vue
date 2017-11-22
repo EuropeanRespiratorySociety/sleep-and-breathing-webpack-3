@@ -19,7 +19,7 @@
             <v-card-title primary-title>
               <div>
                 <h3 class="headline mb-0">{{post.title}}</h3>
-                <span><v-icon class="published">query_builder</v-icon>{{post.createdOn}}</span>
+                <!--<span><v-icon class="published">query_builder</v-icon>{{post.createdOn}}</span>-->
               </div>
             </v-card-title>
             <v-card-text v-html="post.shortLead">

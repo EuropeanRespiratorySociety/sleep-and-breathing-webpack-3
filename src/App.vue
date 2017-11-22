@@ -10,10 +10,10 @@
       v-scroll="onScroll"
       prominent
     >
-      <v-toolbar-side-icon @click.stop="toggle()"></v-toolbar-side-icon>
-      <v-toolbar-title>Sleep and Breathing </v-toolbar-title>  
+      <v-toolbar-side-icon @click.stop="toggle"></v-toolbar-side-icon>
+      <v-toolbar-title v-if="!drawer">Sleep and Breathing </v-toolbar-title>  
     </v-toolbar>
-    <v-parallax src='./static/img/background-image.png' class="backgroundimage"></v-parallax>
+    <v-parallax src='../static/img/background-image.png' class="backgroundimage"></v-parallax>
     <transition name="test" mode="out-in">
       <v-content>
         <v-container fluid>
@@ -31,7 +31,7 @@
 <script>
   import SleepFooter from './components/layout/SleepFooter'
   import SleepNavigation from './components/layout/SleepNavigation'
-  import { mapActions } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     name: 'App',
@@ -43,12 +43,16 @@
         rightDrawer: false
       }
     },
+    computed:
+      mapState([
+        'drawer'
+      ]),
     methods: {
       ...mapActions([
         'toggleDrawer'
       ]),
 
-      toggle (item) {
+      toggle () {
         this.toggleDrawer()
       },
 

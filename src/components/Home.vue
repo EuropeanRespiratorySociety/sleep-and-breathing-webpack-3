@@ -19,7 +19,7 @@
             <v-card-title primary-title>
               <div>
                 <h3 class="headline mb-0">{{post.title}}</h3>
-                <span><v-icon class="published">query_builder</v-icon>{{post.createdOn}}</span>
+                <!--<span><v-icon class="published">query_builder</v-icon>{{post.createdOn}}</span>-->
               </div>
             </v-card-title>
             <v-card-text v-html="post.shortLead">
@@ -85,9 +85,8 @@
 
 <script>
   import { mapActions } from 'vuex'
-  import * as config from '../../config'
-  console.log(config)
-  console.log(process)
+  // import * as config from '../../config'
+
   export default {
     name: 'Category',
     data () {
