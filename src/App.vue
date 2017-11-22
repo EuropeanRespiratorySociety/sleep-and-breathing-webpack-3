@@ -13,8 +13,7 @@
       <v-toolbar-side-icon @click.stop="toggle()"></v-toolbar-side-icon>
       <v-toolbar-title>Sleep and Breathing </v-toolbar-title>  
     </v-toolbar>
-    <v-parallax src="https://www.ersnet.org/assets/preview/node/o:383143a9427e5caae1bb?name=image1800&size=1800">
-    </v-parallax>
+    <v-parallax src='./static/img/background-image.png' class="backgroundimage"></v-parallax>
     <transition name="test" mode="out-in">
       <v-content>
         <v-container fluid>
@@ -89,4 +88,7 @@
       opacity: 0
   }
 
+  .backgroundimage img{
+    width: 2000px;
+  }
 </style>
