@@ -85,6 +85,9 @@
 
 <script>
   import { mapActions } from 'vuex'
+  import * as config from '../../config'
+  console.log(config)
+  console.log(process)
   export default {
     name: 'Category',
     data () {

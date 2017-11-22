@@ -1,7 +1,6 @@
 <template>
     <v-navigation-drawer 
         app
-        clipped
         fixed
         :value="drawer" 
         :mini-variant="mini" 
