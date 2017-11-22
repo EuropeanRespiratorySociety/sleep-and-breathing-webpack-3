@@ -1,14 +1,16 @@
 <template>
     <v-navigation-drawer 
         app
-        clipped
         fixed
         :value="drawer" 
         :mini-variant="mini" 
         light
         @input="checkToggleState"
         >
-      <v-list class="pa-1">
+        <div class="ml-5 mt-3">
+          <img src="../../assets/logo-top.png" width="200" height="112" />
+        </div>
+    <!--  <v-list class="pa-1">
         <v-list-tile v-if="mini" @click.stop="mini = !mini">
               <v-list-tile-action>
                 <v-icon>chevron_right</v-icon>
@@ -27,17 +29,9 @@
                 </v-btn>
               </v-list-tile-action>
             </v-list-tile>
-          </v-list>
-        <v-list>
-          <v-list-tile>
-            <v-list-tile-title class="title">
-              Application
-            </v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-toolbar>
-      <v-divider></v-divider>
-      <v-list dense class="pt-0">
+          </v-list>-->
+
+      <v-list dense class="pt-3">
         <v-list-tile v-for="item in items" :key="item.title" @click="" :href="item.slug">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -83,5 +77,9 @@
 </script>
 
 <style lang="stylus">
+  .logo-title {
+    height: 112px !important;
+  }
+
   @import '../../stylus/main'
 </style>
