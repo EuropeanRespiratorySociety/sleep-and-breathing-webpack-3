@@ -1,8 +1,8 @@
 <template>
     <v-navigation-drawer 
         app
-        enable-resize-watcher
-        persistent
+        clipped
+        fixed
         :value="drawer" 
         :mini-variant="mini" 
         light
@@ -57,7 +57,6 @@
     name: 'sleep-navigation',
     data () {
       return {
-        fixed: false,
         mini: false,
         items: [
           { title: 'Home', icon: 'home', slug: '/' },

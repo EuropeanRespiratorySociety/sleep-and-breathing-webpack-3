@@ -1,22 +1,30 @@
 <template>
-  <v-app class="Simple">
+  <v-app>
     <v-toolbar 
       app
       fixed
+      dark
+      flat
       id="header-t"
-      light class="primary transparent elevation-0" 
+      class="primary transparent elevation-0" 
       v-scroll="onScroll"
-      prominent>
+      prominent
+    >
       <v-toolbar-side-icon @click.stop="toggle()"></v-toolbar-side-icon>
       <v-toolbar-title>Sleep and Breathing </v-toolbar-title>  
     </v-toolbar>
-    <v-card app class="grey lighten-5" flat>
-      <v-parallax src="https://www.ersnet.org/assets/preview/node/o:383143a9427e5caae1bb?name=image1800&size=1800"></v-parallax>
-    </v-card>
+    <v-parallax src="https://www.ersnet.org/assets/preview/node/o:383143a9427e5caae1bb?name=image1800&size=1800">
+    </v-parallax>
+    <transition name="test" mode="out-in">
+      <v-content>
+        <v-container fluid>
+          <v-layout row>
+            <router-view></router-view>
+          </v-layout>
+        </v-container>
+      </v-content>    
+    </transition>
     <sleep-navigation></sleep-navigation>
-    <main id="main-container">
-        <router-view></router-view>
-    </main>
     <sleep-footer></sleep-footer>
   </v-app>
 </template>
@@ -65,7 +73,7 @@
 <style lang="stylus">
   @import './stylus/main'
   .card--flex-toolbar {
-    margin-top: -80px;
+    margin-top: -145px;
   }
 
   .transparent {
@@ -73,8 +81,12 @@
     background-size: cover;
   }
 
-  #main-container {
-    margin-bottom: 55px;
+  .test-enter-active, .test-leave-active {
+      transition: opacity 1s
+  }
+  
+  .test-enter, .test-leave-to {
+      opacity: 0
   }
 
 </style>

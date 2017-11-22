@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Category from '@/components/Category'
+import Home from '@/components/Home'
 import Article from '@/components/Article'
 
 Vue.use(Router)
@@ -11,7 +12,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Category
+      component: Home
     },
     {
       path: '/programme',
