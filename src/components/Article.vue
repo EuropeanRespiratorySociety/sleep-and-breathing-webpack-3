@@ -17,7 +17,7 @@
 
 <script>
   import { mapActions } from 'vuex'
-  
+
   export default {
     name: 'Category',
     data () {
@@ -31,6 +31,10 @@
     },
 
     computed: {
+      slug () {
+        return this.$store.getters.slug
+      },
+
       article () {
         return this.$store.state.article
       }

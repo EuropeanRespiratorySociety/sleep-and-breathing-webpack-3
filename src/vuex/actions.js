@@ -57,7 +57,10 @@ export const getCategory = ({ commit, dispatch }, payload) => {
     commit(types.SET_CATEGORY, data, err => { console.log(err) })
   })
   .catch(e => {
-    console.log(e)
+    if (window.localStorage.getItem('vuex')) {
+      const restored = JSON.parse(window.localStorage.getItem('vuex'))
+      commit(types.RESTORE_MUTATION, restored, err => { console.log(err) })
+    }
   })
 }
 

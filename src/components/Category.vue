@@ -1,8 +1,8 @@
 <template>
   <v-flex xs12 sm12 md8 lg8 offset-md2 offset-lg2>
-    <v-card id="test" class="card--flex-toolbar">
+    <v-card v-if="category" id="test" class="card--flex-toolbar">
       <v-toolbar card class="white">
-        <v-toolbar-title class="headline grey--text">{{category.title}}</v-toolbar-title>
+        <v-toolbar-title v-if="category" class="headline grey--text">{{category.title}}</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
 
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'Category',
     data () {
@@ -49,11 +49,20 @@
     },
 
     computed: {
-      articles () {
-        return this.$store.state.articles
+      ...mapGetters([
+        'slug'
+      ]),
+
+      path () {
+        return this.$store.state.route.path
       },
+
+      articles () {
+        return this.$store.state.pages[this.path].items
+      },
+
       category () {
-        return this.$store.state.category
+        return this.$store.state.pages[this.path].category
       }
     },
 
@@ -65,7 +74,7 @@
       fetchData () {
         const payload = {
           pageNumber: parseInt(this.$route.params.id) || this.page,
-          request: this.$route.path.split('/')[1],
+          request: this.slug,
           skip: this.$store.state.skip
         }
         this.getCategory(payload)

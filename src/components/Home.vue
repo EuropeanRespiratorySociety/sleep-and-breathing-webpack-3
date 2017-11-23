@@ -2,12 +2,12 @@
   <v-flex xs12 sm12 md8 lg8 offset-md2 offset-lg2>
     <v-card id="test" class="card--flex-toolbar">
       <v-toolbar card color="white">
-        <v-toolbar-title class="headline grey--text">{{category.title}}</v-toolbar-title>
+        <v-toolbar-title v-if="category" class="headline grey--text">{{category.title}}</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
 
       <v-divider></v-divider>
-      <v-card-text v-if="category.body" v-html="categoryContent"></v-card-text>
+      <v-card-text v-if="category" v-html="categoryContent"></v-card-text>
     </v-card>
     
     <v-container grid-list-md>
@@ -88,7 +88,7 @@
   // import * as config from '../../config'
 
   export default {
-    name: 'Category',
+    name: 'Home',
     data () {
       return {
         fixed: false
@@ -100,11 +100,20 @@
     },
 
     computed: {
-      articles () {
-        return this.$store.state.articles
+      slug () {
+        return this.$store.getters.slug
       },
+
+      path () {
+        return this.$store.state.route.path
+      },
+
+      articles () {
+        return this.$store.state.pages[this.path].items
+      },
+
       category () {
-        return this.$store.state.category
+        return this.$store.state.pages[this.path].category
       },
 
       categoryContent () {
@@ -120,12 +129,13 @@
     methods: {
       ...mapActions([
         'getCategory',
-        'pageNumber'
+        'pageNumber',
+        'setDrawer'
       ]),
       fetchData () {
         const payload = {
           pageNumber: parseInt(this.$route.params.id) || this.page,
-          request: this.$route.path.split('/')[1],
+          request: this.slug,
           skip: this.$store.state.skip
         }
         this.getCategory(payload)

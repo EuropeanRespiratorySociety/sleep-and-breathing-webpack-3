@@ -3,12 +3,17 @@ import Router from 'vue-router'
 import Category from '@/components/Category'
 import Home from '@/components/Home'
 import Article from '@/components/Article'
+import store from '../vuex/store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/home',
+      redirect: '/'
+    },
     {
       path: '/',
       name: 'Home',
@@ -26,3 +31,13 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  next(vm => {
+    const slug = store.getters.slug
+    vm.store.dispatch('setCategoryKey', slug)
+    vm.store.dispatch('setArticlesKey', slug)
+  })
+})
+
+export default router

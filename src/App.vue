@@ -37,7 +37,6 @@
     name: 'App',
     data () {
       return {
-        title: 'Vuetify.js',
         offsetTop: 0,
         height: 600,
         rightDrawer: false
@@ -80,7 +79,7 @@
   }
 
   .transparent {
-    background: transparent;
+    background: transparent!important;
     background-size: cover;
   }
 
