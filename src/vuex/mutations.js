@@ -39,9 +39,8 @@ export default {
 
   [types.RESTORE_MUTATION] (state, data) {
     state.drawer = data.drawer
-    state.articles = data.articles
+    state.pages = data.pages
     state.article = data.article
-    state.category = data.category
     state.pageNumber = data.pageNumber
   }
 }
