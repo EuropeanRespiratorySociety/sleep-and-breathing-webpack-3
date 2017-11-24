@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Category from '@/components/Category'
 import Home from '@/components/Home'
 import Article from '@/components/Article'
-import store from '../vuex/store'
+// import store from '../vuex/store'
 
 Vue.use(Router)
 
@@ -32,12 +32,12 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  next(vm => {
-    const slug = store.getters.slug
-    vm.store.dispatch('setCategoryKey', slug)
-    vm.store.dispatch('setArticlesKey', slug)
-  })
-})
+// router.beforeEach((to, from, next) => {
+//   next(vm => {
+//     const slug = store.getters.slug
+//     vm.store.dispatch('setCategoryKey', slug)
+//     vm.store.dispatch('setArticlesKey', slug)
+//   })
+// })
 
 export default router
