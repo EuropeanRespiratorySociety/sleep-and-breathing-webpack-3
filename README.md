@@ -34,3 +34,15 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 # Production procedure
 1. Commit and push code to github
+
+## Connect to Infomaniak and setup the environment
+2. `ssh` to Infomaniak
+3. run the command: `source .bashrc`
+4. run the command: `nvm use stable` (Should output: `Now using node v8.9.0 (npm v5.5.1)`)
+5. go to the Sleep and Breathing folder: `cd sleepandbreathing`
+
+## Deploy new code
+6. Pull changes from github master: `git pull origin master`
+7. Build website: `npm run build`
+8. Check that everything works ;)
+
