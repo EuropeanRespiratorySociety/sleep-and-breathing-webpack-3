@@ -1,44 +1,165 @@
 <template>
 
   <v-flex xs12 sm12 md8 lg8 offset-md2 offset-lg2>
-    <v-card id="test" class="card--flex-toolbar">
-      <v-toolbar card color="white">
-        <v-toolbar-title v-if="category" class="headline grey--text">{{category.title}}</v-toolbar-title>
-        <v-spacer></v-spacer>
-      </v-toolbar>
-
-      <v-divider></v-divider>
-      <v-card-text v-if="category" v-html="categoryContent"></v-card-text>
-    </v-card>
-    
-    <v-container grid-list-md>
-    <v-layout row wrap>
-      <v-flex xs12 sm6>
-        <v-card id="test" class="card--flex-toolbar">
-          <v-toolbar card color="white">
-            <v-toolbar-title v-if="category" class="headline grey--text">{{category.title}}</v-toolbar-title>
+    <v-container grid-list-md style="margin-top: -145px;">
+      <v-layout v-if="articles" row wrap>
+        <v-flex xs12 sm6>
+          <v-card id="test">
+            <v-toolbar card color="white">
+              <v-toolbar-title v-if="category" class="headline grey--text">{{category.title}}</v-toolbar-title>
             <v-spacer></v-spacer>
-          </v-toolbar>
+            </v-toolbar>
+            <v-divider></v-divider>
+            <v-card-text v-if="category" v-html="categoryContent"></v-card-text>
+          </v-card>
+        </v-flex>
 
-          <v-divider></v-divider>
-          <v-card-text v-if="category" v-html="categoryContent"></v-card-text>
-        </v-card>
-      </v-flex>
-
-      <v-flex xs12 sm6>
-        <v-card id="test" class="card--flex-toolbar">
-          <v-toolbar card color="white">
-            <v-toolbar-title v-if="category" class="headline grey--text">{{category.title}}</v-toolbar-title>
-            <v-spacer></v-spacer>
-          </v-toolbar>
-
-          <v-divider></v-divider>
-          <v-card-text v-if="category" v-html="categoryContent"></v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
+        <v-flex xs12 sm6>
+          <v-card id="test">
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb-0">Important Dates</h3>
+              </div>
+            </v-card-title>
+            <v-list three-line>
+              <v-list-tile>
+                  <v-list-tile-action>
+                    <v-icon color="primary">event</v-icon>
+                  </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title>25 January 2018</v-list-tile-title>
+                  <v-list-tile-sub-title>Call for topics deadline</v-list-tile-sub-title>
+                </v-list-tile-content>
+                </v-list-tile>
+                <v-divider inset></v-divider>
+                <v-list-tile>
+                  <v-list-tile-action>
+                    <v-icon color="primary">event</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title class="mt-1">August 2018</v-list-tile-title>
+                    <v-list-tile-sub-title class="mb-1">Registration and<br />Abstract submission opening</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </v-container>
 
+    <v-card id="test">
+        <v-card-title primary-title>
+          <div>
+            <h3 class="headline mb-0">Organising Committee</h3>
+            <!--<span><v-icon class="published">query_builder</v-icon>{{post.createdOn}}</span>-->
+          </div>
+        </v-card-title>
+
+
+        <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12 sm12 md4 class="pb-3">
+                    <v-list>
+                      <h6 class="subheading pb-1">CHAIRS</h6>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Maria Bonsignore</v-list-tile-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                      <v-divider inset></v-divider>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Walter McNicholas</v-list-tile-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                      <v-divider inset></v-divider>
+                    </v-list>
+                  </v-flex>
+
+                  <v-flex xs12 sm12 md4 class="pb-3">
+                    <v-list>
+                      <h6 class="subheading pb-1">VICE CHAIRS</h6>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Lino Nobili</v-list-tile-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                      <v-divider inset></v-divider>
+                      <v-list-tile>
+                      <v-list-tile-action>
+                        <v-icon color="indigo">account_circle</v-icon>
+                      </v-list-tile-action>
+                      <v-list-tile-content>
+                        <v-list-tile-title>Anita Simonds</v-list-tile-title>
+                      </v-list-tile-content>
+                    </v-list-tile>
+                    <v-divider inset></v-divider>
+                    </v-list>
+                  </v-flex>
+
+                  <v-flex xs12 sm12 md4 class="pb-3">
+                    <v-list>
+                      <h6 class="subheading pb-1">COMMITTEE MEMBERS</h6>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Tiina Paunio</v-list-tile-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                      <v-divider inset></v-divider>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Jean-Louis Pépin</v-list-tile-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                      <v-divider inset></v-divider>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Winfried Randerath</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-divider inset></v-divider>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Sophia E. Schiza</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-divider inset></v-divider>
+                      <v-list-tile>
+                        <v-list-tile-action>
+                          <v-icon color="indigo">account_circle</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                          <v-list-tile-title>Johan Verbraecken</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    </v-list>
+                  </v-flex>
+                </v-layout>
+
+                </v-container>
+
+    </v-card>
 
 
     <v-container grid-list-md>
