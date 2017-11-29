@@ -60,11 +60,11 @@
                 <v-layout row wrap>
                   <v-flex xs12 sm12 md4 class="pb-3">
                     <v-list>
-                      <h6 class="subheading pb-1">CHAIRS</h6>
-                      <v-list-tile>
-                        <v-list-tile-action>
-                          <v-icon color="indigo">account_circle</v-icon>
-                        </v-list-tile-action>
+                      <h6 class="subheading pb-2">CHAIRS</h6>
+                      <v-list-tile avatar>
+                        <v-list-tile-avatar>
+                          <img src="../assets/people/Maria_R_Bonsignore.jpg" />
+                        </v-list-tile-avatar>
                         <v-list-tile-content>
                           <v-list-tile-title>Maria Bonsignore</v-list-tile-title>
                         </v-list-tile-content>
@@ -84,7 +84,7 @@
 
                   <v-flex xs12 sm12 md4 class="pb-3">
                     <v-list>
-                      <h6 class="subheading pb-1">VICE CHAIRS</h6>
+                      <h6 class="subheading pb-2">VICE CHAIRS</h6>
                       <v-list-tile>
                         <v-list-tile-action>
                           <v-icon color="indigo">account_circle</v-icon>
@@ -108,7 +108,7 @@
 
                   <v-flex xs12 sm12 md4 class="pb-3">
                     <v-list>
-                      <h6 class="subheading pb-1">COMMITTEE MEMBERS</h6>
+                      <h6 class="subheading pb-2">COMMITTEE MEMBERS</h6>
                       <v-list-tile>
                         <v-list-tile-action>
                           <v-icon color="indigo">account_circle</v-icon>
