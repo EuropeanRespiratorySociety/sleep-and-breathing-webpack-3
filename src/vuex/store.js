@@ -32,7 +32,8 @@ export default new Vuex.Store({
     pageNumber: 1,
     skip: 0,
     limit: 25,
-    length: 0
+    length: 0,
+    offline: false
   },
   mutations: mutations.default,
   plugins: [vuexLocal.plugin]

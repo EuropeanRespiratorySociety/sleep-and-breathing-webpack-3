@@ -42,5 +42,13 @@ export default {
     state.pages = data.pages
     state.article = data.article
     state.pageNumber = data.pageNumber
+  },
+
+  [types.SET_ONLINE] (state) {
+    state.offline = false
+  },
+
+  [types.SET_OFFLINE] (state) {
+    state.offline = true
   }
 }

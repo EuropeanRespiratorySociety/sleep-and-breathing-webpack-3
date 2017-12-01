@@ -6,12 +6,12 @@
       dark
       flat
       id="header-t"
-      class="primary transparent elevation-0" 
+      :class="setClass()" 
       v-scroll="onScroll"
       prominent
     >
       <v-toolbar-side-icon @click.stop="toggle"></v-toolbar-side-icon>
-      <v-toolbar-title v-if="!drawer">Sleep and Breathing </v-toolbar-title>  
+      <v-toolbar-title v-if="!drawer">Sleep and Breathing <span v-if="offline">currently offline</span></v-toolbar-title>  
     </v-toolbar>
     <v-parallax src='../static/img/background-image.png' class="backgroundimage"></v-parallax>
     <transition name="test" mode="out-in">
@@ -44,10 +44,19 @@
     },
     computed:
       mapState([
-        'drawer'
+        'drawer',
+        'offline'
       ]),
 
     methods: {
+
+      setClass () {
+        if (this.offline) {
+          return 'error elevation-0'
+        }
+        return 'primary transparent elevation-0'
+      },
+
       ...mapActions([
         'toggleDrawer'
       ]),
@@ -60,11 +69,11 @@
         let container = document.getElementById('header-t')
         this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
 
-        if (this.offsetTop > 100) {
+        if (this.offsetTop > 100 && !this.offline) {
           container.classList.remove('transparent')
         }
 
-        if (this.offsetTop < 100) {
+        if (this.offsetTop < 100 && !this.offline) {
           container.classList.add('transparent')
         }
       }
