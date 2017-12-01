@@ -80,8 +80,7 @@
     methods: {
       ...mapActions([
         'getCategory',
-        'pageNumber',
-        'setDrawer'
+        'pageNumber'
       ]),
       fetchData () {
         const payload = {

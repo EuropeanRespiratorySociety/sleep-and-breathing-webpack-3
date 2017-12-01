@@ -46,6 +46,7 @@
       mapState([
         'drawer'
       ]),
+
     methods: {
       ...mapActions([
         'toggleDrawer'
