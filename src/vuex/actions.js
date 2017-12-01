@@ -54,13 +54,13 @@ export const getCategory = ({ commit, dispatch }, payload) => {
     data.skip = response.data._sys.skip
 
     dispatch('pageNumber', data.pageNumber)
-    commit(types.SET_ONLINE)
+    dispatch('setOnline')
     commit(types.SET_CATEGORY, data, err => { console.log(err) })
   })
   .catch(e => {
     if (window.localStorage.getItem('vuex')) {
       const restored = JSON.parse(window.localStorage.getItem('vuex'))
-      commit(types.SET_OFFLINE)
+      dispatch('setOffline')
       commit(types.RESTORE_MUTATION, restored, err => { console.log(err) })
     }
   })
@@ -74,13 +74,13 @@ export const getArticle = ({ commit, dispatch }, payload) => {
   .get(route)
   .then(response => {
     data.item = response.data
-    commit(types.SET_ONLINE)
+    dispatch('setOnline')
     commit(types.SET_ARTICLE, data, err => { console.log(err) })
     // commit something
   }).catch(e => {
     if (window.localStorage.getItem('vuex')) {
       const restored = JSON.parse(window.localStorage.getItem('vuex'))
-      commit(types.SET_OFFLINE)
+      dispatch('setOffline')
       commit(types.RESTORE_MUTATION, restored, err => { console.log(err) })
     }
   })
