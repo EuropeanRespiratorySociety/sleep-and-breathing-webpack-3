@@ -25,7 +25,7 @@
             <v-card-text v-html="post.shortLead">
             </v-card-text>
             <v-card-actions>
-              <v-btn :href="`articles/${post.slug}`" flat>More...</v-btn>
+              <v-btn :to="`articles/${post.slug}`" flat>More...</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
