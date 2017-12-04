@@ -30,7 +30,8 @@ export default {
   },
 
   [types.SET_ARTICLE] (state, data) {
-    state.article = data.item.data
+    const path = state.route.path
+    state.pages[path] = data.item.data
   },
 
   [types.SET_PAGE_NUMBER] (state, value) {

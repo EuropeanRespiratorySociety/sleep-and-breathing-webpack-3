@@ -28,7 +28,6 @@ export default new Vuex.Store({
   state: {
     drawer: false,
     pages: keys,
-    article: {},
     pageNumber: 1,
     skip: 0,
     limit: 25,

@@ -2,14 +2,14 @@
   <v-flex xs12 sm12 md8 lg8 offset-md2 offset-lg2>
     <v-card id="test" class="card--flex-toolbar">
       <v-toolbar card class="white">
-        <v-toolbar-title class="headline grey--text text--darken-3">{{article.title}}</v-toolbar-title>
+        <v-toolbar-title v-if="article" class="headline grey--text text--darken-3">{{article.title}}</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
 
       <v-divider></v-divider>
       <v-card-text>
-        <span v-if="article.leadParagraph" v-html="article.leadParagraph"></span>
-        <span v-if="article.body" v-html="article.body"></span>
+        <span v-if="article" v-html="article.leadParagraph"></span>
+        <span v-if="article" v-html="article.body"></span>
       </v-card-text>
     </v-card>
   </v-flex>
@@ -31,12 +31,17 @@
     },
 
     computed: {
+
       slug () {
         return this.$store.getters.slug
       },
 
+      path () {
+        return this.$store.state.route.path
+      },
+
       article () {
-        return this.$store.state.article
+        return this.$store.state.pages[this.path]
       }
     },
 
