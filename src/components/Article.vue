@@ -62,7 +62,11 @@
           slug: this.$route.params.slug
         }
         this.getArticle(payload).then(res => {
-          this.article = res.item.data
+          if (res !== undefined) {
+            this.article = res.item.data
+          } else {
+            this.article = this.$store.state.pages[this.path]
+          }
         })
       }
     }
