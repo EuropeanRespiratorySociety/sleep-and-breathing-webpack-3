@@ -1,6 +1,6 @@
 <template>
   <v-flex xs12 sm12 md8 lg8 offset-md2 offset-lg2>
-    <v-card id="test" class="card--flex-toolbar">
+    <v-card v-if="article" id="test" class="card--flex-toolbar">
       <v-toolbar card class="white">
         <v-toolbar-title v-if="article.title" class="headline grey--text text--darken-3">{{article.title}}</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -22,12 +22,19 @@
     name: 'Category',
     data () {
       return {
-        fixed: false
+        fixed: false,
+        article: this.item
       }
     },
 
     created () {
       this.fetchData()
+    },
+
+    watch: {
+      '$route' () {
+        this.fetchData()
+      }
     },
 
     computed: {
@@ -40,20 +47,23 @@
         return this.$store.state.route.path
       },
 
-      article () {
+      item () {
         return this.$store.state.pages[this.path]
       }
     },
 
     methods: {
       ...mapActions([
-        'getArticle'
+        'getArticle',
+        'setArticle'
       ]),
       fetchData () {
         const payload = {
           slug: this.$route.params.slug
         }
-        this.getArticle(payload)
+        this.getArticle(payload).then(res => {
+          this.article = res.item.data
+        })
       }
     }
 

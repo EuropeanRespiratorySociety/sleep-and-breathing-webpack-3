@@ -67,22 +67,25 @@ export const getCategory = ({ commit, dispatch }, payload) => {
 }
 
 export const getArticle = ({ commit, dispatch }, payload) => {
-  const route = `sleepandbreathing/${payload.slug}`
-  let data = {}
+  return new Promise((resolve, reject) => {
+    const route = `sleepandbreathing/${payload.slug}`
+    let data = {}
 
-  HTTP
-  .get(route)
-  .then(response => {
-    data.item = response.data
-    dispatch('setOnline')
-    commit(types.SET_ARTICLE, data, err => { console.log(err) })
-    // commit something
-  }).catch(e => {
-    if (window.localStorage.getItem('vuex')) {
-      const restored = JSON.parse(window.localStorage.getItem('vuex'))
-      dispatch('setOffline')
-      commit(types.RESTORE_MUTATION, restored, err => { console.log(err) })
-    }
+    HTTP
+    .get(route)
+    .then(response => {
+      data.item = response.data
+      dispatch('setOnline')
+      commit(types.SET_ARTICLE, data, err => { console.log(err) })
+      resolve(data)
+    }).catch(e => {
+      if (window.localStorage.getItem('vuex')) {
+        const restored = JSON.parse(window.localStorage.getItem('vuex'))
+        dispatch('setOffline')
+        commit(types.RESTORE_MUTATION, restored, err => { console.log(err) })
+        resolve()
+      }
+    })
   })
 }
 
