@@ -106,11 +106,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: 'service-worker.js',
       staticFileGlobs: ['dist/**/*.{js,html,css,jpg,png}'],
       runtimeCaching: [{
-        urlPattern: /^https:\/\/api\.ersnet\.org\/sleepandbreathing/,
+        urlPattern: /^https:\/\/sleepandbreathing\.org/,
         handler: 'networkFirst'
       }],
       minify: true,
-      navigateFallback: '/index.html',
+      // navigateFallback: '/index.html',
       stripPrefix: 'dist/'
     })
   ]
