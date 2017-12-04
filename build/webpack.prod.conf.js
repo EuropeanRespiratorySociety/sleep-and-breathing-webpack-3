@@ -102,10 +102,15 @@ var webpackConfig = merge(baseWebpackConfig, {
     ]),
     // service worker caching
     new SWPrecacheWebpackPlugin({
-      cacheId: 'my-vue-app',
+      cacheId: 'sleep-and-breathing',
       filename: 'service-worker.js',
       staticFileGlobs: ['dist/**/*.{js,html,css,jpg,png}'],
+      runtimeCaching: [{
+        urlPattern: /^https:\/\/api\.ersnet\.org\/sleepandbreathing/,
+        handler: 'networkFirst'
+      }],
       minify: true,
+      navigateFallback: '/index.html',
       stripPrefix: 'dist/'
     })
   ]
