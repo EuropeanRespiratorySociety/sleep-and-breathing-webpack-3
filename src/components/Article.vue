@@ -74,7 +74,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   @import '../stylus/main'
   .published {
     font-size:18px!important;
