@@ -75,7 +75,10 @@
 </script>
 
 <style lang="stylus">
-  @import '../stylus/main'
+    @import '../stylus/main'
+</style>
+
+<style scoped>
   .published {
     font-size:18px!important;
     padding-right:5px;
