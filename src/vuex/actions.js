@@ -38,14 +38,15 @@ export const getCategory = ({ commit, dispatch }, payload) => {
   let qname = ''
 
   switch (payload.request) {
-    case 'programme':
-      qname = 'o:f730239a8b20c4024d7f'
-      break
-    default:
-      qname = 'o:120ab483a2d8502c4947' // home
+  case 'programme':
+    qname = 'o:f730239a8b20c4024d7f'
+    break
+  default:
+    qname = 'o:120ab483a2d8502c4947' // home
   }
 
   const route = `sleepandbreathing?qname=${qname}`
+
   HTTP
   .get(route)
   .then(response => {
