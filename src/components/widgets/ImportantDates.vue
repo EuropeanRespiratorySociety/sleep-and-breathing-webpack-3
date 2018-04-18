@@ -50,7 +50,7 @@
 </template>
 <script>
   export default {
-    name: 'organising-committee'
+    name: 'important-dates'
   }
 </script>
 

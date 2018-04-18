@@ -20,7 +20,13 @@
         </v-list> -->
 
       <v-list dense class="pt-3">
-        <v-list-tile v-for="item in items" :key="item.title" @click="" :to="item.path">
+
+        <v-list-tile 
+          v-for="item in items" 
+          :key="item.title"
+          :to="!item.external ? item.path : null"
+          :href="item.external ? item.path : null"
+        >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
