@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <parallax-header></parallax-header>
-    <v-parallax src='../static/img/background-image2.png' class="backgroundimage" height="300">
-    </v-parallax> 
     <transition name="test" mode="out-in">
       <v-content >
         <v-container fluid>
@@ -14,12 +12,12 @@
       </v-content> 
     </transition>
     <sleep-navigation></sleep-navigation>
-    <sleep-footer></sleep-footer>
+    <site-footer></site-footer>
   </v-app>
 </template>
 
 <script>
-  import SleepFooter from './components/layout/SleepFooter'
+  import SiteFooter from './components/layout/SiteFooter'
   import SleepNavigation from './components/layout/SleepNavigation'
   import ParallaxHeader from './components/base/ParallaxHeader'
   import {
@@ -32,7 +30,7 @@
     data () {
       return {
         offsetTop: 0,
-        height: 600,
+        height: 300,
         rightDrawer: false
       }
     },
@@ -42,14 +40,6 @@
     ]),
   
     methods: {
-  
-      setClass () {
-        if (this.offline) {
-          return 'error elevation-0'
-        }
-        return 'primary transparent elevation-0'
-      },
-  
       ...mapActions([
         'toggleDrawer'
       ]),
@@ -60,7 +50,7 @@
   
     },
     components: {
-      SleepFooter,
+      SiteFooter,
       SleepNavigation,
       ParallaxHeader
     }
