@@ -1,12 +1,8 @@
 <template>
   <v-app>
-    <v-toolbar app fixed dark flat id="header-t" :class="setClass()" v-scroll="onScroll" prominent >
-      <v-toolbar-side-icon @click.stop="toggle"></v-toolbar-side-icon>
-      <a href="/"><img src="./assets/logo-title2.png" width="38" d-flex v-if="!drawer" /></a>
-      <v-toolbar-title v-if="!drawer" class="mb-1">Sleep and Breathing <span v-if="offline">currently offline</span></v-toolbar-title>
-    </v-toolbar>
+    <parallax-header></parallax-header>
     <v-parallax src='../static/img/background-image2.png' class="backgroundimage" height="300">
-    </v-parallax>
+    </v-parallax> 
     <transition name="test" mode="out-in">
       <v-content >
         <v-container fluid>
@@ -15,7 +11,7 @@
             </router-view>
           </v-layout>
         </v-container>
-      </v-content>
+      </v-content> 
     </transition>
     <sleep-navigation></sleep-navigation>
     <sleep-footer></sleep-footer>
@@ -25,6 +21,7 @@
 <script>
   import SleepFooter from './components/layout/SleepFooter'
   import SleepNavigation from './components/layout/SleepNavigation'
+  import ParallaxHeader from './components/base/ParallaxHeader'
   import {
     mapActions,
     mapState
@@ -59,26 +56,13 @@
   
       toggle () {
         this.toggleDrawer()
-      },
-  
-      onScroll (e) {
-        let container = document.getElementById('header-t')
-        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
-  
-        if (this.offsetTop > 100 && !this.offline) {
-          container.classList.add('primary')
-          container.classList.remove('transparent')
-        }
-  
-        if (this.offsetTop < 100 && !this.offline) {
-          container.classList.add('transparent')
-          container.classList.remove('primary')
-        }
       }
+  
     },
     components: {
       SleepFooter,
-      SleepNavigation
+      SleepNavigation,
+      ParallaxHeader
     }
   }
 </script>
