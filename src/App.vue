@@ -18,11 +18,10 @@
 
 <script>
   import SiteFooter from './components/layout/SiteFooter'
-  import SleepNavigation from './components/layout/SleepNavigation'
+  import SiteNavigation from './components/layout/SiteNavigation'
   import ParallaxHeader from './components/base/ParallaxHeader'
   import {
-    mapActions,
-    mapState
+    mapActions
   } from 'vuex'
   
   export default {
@@ -34,11 +33,6 @@
         rightDrawer: false
       }
     },
-    computed: mapState([
-      'drawer',
-      'offline'
-    ]),
-  
     methods: {
       ...mapActions([
         'toggleDrawer'
@@ -51,7 +45,7 @@
     },
     components: {
       SiteFooter,
-      SleepNavigation,
+      SiteNavigation,
       ParallaxHeader
     }
   }

@@ -12,18 +12,29 @@
 
 
 <script>
+  import {
+    mapState
+  } from 'vuex'
+
   export default {
     name: 'parallax-header',
     data () {
       return {
       }
     },
+    computed: mapState([
+      'drawer',
+      'offline'
+    ]),
     methods: {
       setClass () {
         if (this.offline) {
           return 'error elevation-0'
         }
         return 'primary transparent elevation-0'
+      },
+      toggle () {
+        this.toggleDrawer()
       },
       onScroll (e) {
         let container = document.getElementById('header-t')

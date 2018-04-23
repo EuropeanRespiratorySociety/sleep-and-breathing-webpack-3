@@ -11,13 +11,35 @@
           <img src="../../assets/logo-top.png" width="200" height="112" />
         </div>
 
-        <!-- <v-list class="pa-1">
-          <v-list-tile v-if="mini" @click.stop="mini = !mini">
+      <v-toolbar flat class="transparent" :style="!mini? 'margin-bottom:10px;' : ''">
+        <v-list class="pa-0">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <i v-if="mini && showMini" class="icon-ers icon" style="font-size:50px; color:#d0043c;"></i>
+            </v-list-tile-avatar>
+            <v-list-tile-content style="height:130px;padding: 10px 0">
+              <v-list-tile-title style="height:100px;margin-top:30px">
+              <div class="text-xs-center">
+                <i class="icon-ers icon" style="font-size:80px; color:#d0043c;"></i>
+              </div>
+              </v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-btn v-if="showMini" icon @click.native.stop="mini = !mini">
+                <v-icon>chevron_left</v-icon>
+              </v-btn>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+
+        <v-list class="pa-1">
+          <v-list-tile v-if="mini && showMini" @click.stop="mini = !mini">
             <v-list-tile-action>
               <v-icon>chevron_right</v-icon>
             </v-list-tile-action>
           </v-list-tile>
-        </v-list> -->
+        </v-list>
 
       <v-list dense class="pt-3">
 
@@ -48,6 +70,7 @@
     data () {
       return {
         mini: false,
+        showMini: false,
         items: paths,
         right: null
       }
@@ -60,6 +83,9 @@
     },
 
     computed: {
+      showMini () {
+        return this.$store.state.showMini
+      },
       drawer: {
         get: function () {
           return this.$store.state.drawer

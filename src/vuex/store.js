@@ -32,7 +32,8 @@ export default new Vuex.Store({
     skip: 0,
     limit: 25,
     length: 0,
-    offline: false
+    offline: false,
+    showMini: true
   },
   mutations: mutations.default,
   plugins: [vuexLocal.plugin]
