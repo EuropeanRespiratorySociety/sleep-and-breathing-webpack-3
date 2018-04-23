@@ -17,13 +17,10 @@
 </template>
 
 <script>
-  import SiteFooter from './components/layout/SiteFooter'
-  import SiteNavigation from './components/layout/SiteNavigation'
+  import SiteFooter from './components/base/SiteFooter'
+  import SiteNavigation from './components/base/SiteNavigation'
   import ParallaxHeader from './components/base/ParallaxHeader'
-  import {
-    mapActions
-  } from 'vuex'
-  
+
   export default {
     name: 'App',
     data () {
@@ -32,16 +29,6 @@
         height: 300,
         rightDrawer: false
       }
-    },
-    methods: {
-      ...mapActions([
-        'toggleDrawer'
-      ]),
-  
-      toggle () {
-        this.toggleDrawer()
-      }
-  
     },
     components: {
       SiteFooter,

@@ -61,9 +61,11 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
   import paths from '../../router/paths'
   // reminder this.$vuetify.breakpoint.mdAndUp -> let you know the size of screen (bool)
+  import {
+    mapActions
+  } from 'vuex'
 
   export default {
     name: 'sleep-navigation',
@@ -75,13 +77,11 @@
         right: null
       }
     },
-
     methods: {
       ...mapActions([
         'setDrawer'
       ])
     },
-
     computed: {
       showMini () {
         return this.$store.state.showMini

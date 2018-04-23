@@ -13,7 +13,8 @@
 
 <script>
   import {
-    mapState
+    mapState,
+    mapActions
   } from 'vuex'
 
   export default {
@@ -27,6 +28,9 @@
       'offline'
     ]),
     methods: {
+      ...mapActions([
+        'toggleDrawer'
+      ]),
       setClass () {
         if (this.offline) {
           return 'error elevation-0'
