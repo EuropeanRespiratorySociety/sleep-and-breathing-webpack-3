@@ -11,7 +11,7 @@
         </v-container>
       </v-content> 
     </transition>
-    <sleep-navigation></sleep-navigation>
+    <site-navigation></site-navigation>
     <site-footer></site-footer>
   </v-app>
 </template>
