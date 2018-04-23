@@ -68,7 +68,7 @@
   } from 'vuex'
 
   export default {
-    name: 'sleep-navigation',
+    name: 'site-navigation',
     data () {
       return {
         mini: false,
@@ -83,9 +83,6 @@
       ])
     },
     computed: {
-      showMini () {
-        return this.$store.state.showMini
-      },
       drawer: {
         get: function () {
           return this.$store.state.drawer
@@ -95,7 +92,6 @@
         }
       }
     }
-
   }
 </script>
 
