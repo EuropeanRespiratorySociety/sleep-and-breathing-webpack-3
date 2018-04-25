@@ -1,84 +1,40 @@
 <template>
   <v-app>
-    <v-toolbar 
-      app
-      fixed
-      dark
-      flat
-      id="header-t"
-      :class="setClass()" 
-      v-scroll="onScroll"
-      prominent
-    >
-      <v-toolbar-side-icon @click.stop="toggle"></v-toolbar-side-icon>
-      <v-toolbar-title v-if="!drawer">Sleep and Breathing <span v-if="offline">currently offline</span></v-toolbar-title>  
-    </v-toolbar>
-    <v-parallax src='../static/img/background-image.png' class="backgroundimage"></v-parallax>
+    <parallax-header></parallax-header>
     <transition name="test" mode="out-in">
-      <v-content>
+      <v-content >
         <v-container fluid>
           <v-layout row>
-            <router-view></router-view>
+            <router-view>
+            </router-view>
           </v-layout>
         </v-container>
-      </v-content>    
+      </v-content> 
     </transition>
-    <sleep-navigation></sleep-navigation>
-    <sleep-footer></sleep-footer>
+    <site-navigation></site-navigation>
+    <site-footer></site-footer>
   </v-app>
 </template>
 
 <script>
-  import SleepFooter from './components/layout/SleepFooter'
-  import SleepNavigation from './components/layout/SleepNavigation'
-  import { mapActions, mapState } from 'vuex'
+  import SiteFooter from '@/components/base/SiteFooter'
+  import SiteNavigation from '@/components/base/SiteNavigation'
+  import ParallaxHeader from '@/components/base/ParallaxHeader'
 
   export default {
     name: 'App',
     data () {
       return {
         offsetTop: 0,
-        height: 600,
+        height: 300,
         rightDrawer: false
       }
     },
-    computed:
-      mapState([
-        'drawer',
-        'offline'
-      ]),
-
-    methods: {
-
-      setClass () {
-        if (this.offline) {
-          return 'error elevation-0'
-        }
-        return 'primary transparent elevation-0'
-      },
-
-      ...mapActions([
-        'toggleDrawer'
-      ]),
-
-      toggle () {
-        this.toggleDrawer()
-      },
-
-      onScroll (e) {
-        let container = document.getElementById('header-t')
-        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
-
-        if (this.offsetTop > 100 && !this.offline) {
-          container.classList.remove('transparent')
-        }
-
-        if (this.offsetTop < 100 && !this.offline) {
-          container.classList.add('transparent')
-        }
-      }
-    },
-    components: { SleepFooter, SleepNavigation }
+    components: {
+      SiteFooter,
+      SiteNavigation,
+      ParallaxHeader
+    }
   }
 </script>
 
@@ -104,4 +60,8 @@
   .backgroundimage img{
     width: 2000px;
   }
+
+  .toolbar__title {
+  margin-left: 7px !important;
+}
 </style>

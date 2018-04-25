@@ -75,10 +75,8 @@
 </script>
 
 <style lang="stylus">
-    @import '../stylus/main'
-</style>
+  @import '../../stylus/main'
 
-<style scoped>
   .published {
     font-size:18px!important;
     padding-right:5px;
@@ -92,7 +90,7 @@
     margin: 20px 0 4px 0!important;
   }
 
-  ul {
-    margin-left: 30px;
+  .card__text > span > ul {
+    padding-left: 30px!important;
   }
 </style>

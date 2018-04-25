@@ -12,6 +12,12 @@
     
     <v-container grid-list-md>
       <v-layout v-if="articles" row wrap>
+        <v-flex xs12 sm12>
+          <organising-committee />
+        </v-flex>
+        <v-flex xs12 sm6>
+          <important-dates />
+        </v-flex>
         <v-flex v-for="post of articles" xs12 sm6 :key="post.slug">
           <v-card>
             <v-card-media v-if="post.image" :src="post.image" height="200px">
@@ -36,8 +42,11 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
+  import OrganisingCommittee from '../OrganisingCommittee'
+  import ImportantDates from '../ImportantDates'
+
   export default {
-    name: 'Category',
+    name: 'practical-information',
     data () {
       return {
         fixed: false
@@ -79,13 +88,17 @@
         }
         this.getCategory(payload)
       }
+    },
+    components: {
+      OrganisingCommittee,
+      ImportantDates
     }
 
   }
 </script>
 
 <style lang="stylus">
-  @import '../stylus/main'
+  @import '../../stylus/main'
   .published {
     font-size:18px!important;
     padding-right:5px;

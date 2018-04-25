@@ -1,14 +1,6 @@
 import * as types from './mutation-types'
 
 export default {
-  [types.TOGGLE_DRAWER] (state) {
-    state.drawer = !state.drawer
-  },
-
-  [types.SET_DRAWER] (state, data) {
-    state.drawer = data
-  },
-
   [types.SET_NEWS] (state, data) {
     state.length = data.length
     state.limit = data.limit
