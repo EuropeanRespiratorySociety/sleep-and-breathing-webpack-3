@@ -17,9 +17,9 @@
 </template>
 
 <script>
-  import SiteFooter from './components/base/SiteFooter'
-  import SiteNavigation from './components/base/SiteNavigation'
-  import ParallaxHeader from './components/base/ParallaxHeader'
+  import SiteFooter from '@/components/base/SiteFooter'
+  import SiteNavigation from '@/components/base/SiteNavigation'
+  import ParallaxHeader from '@/components/base/ParallaxHeader'
 
   export default {
     name: 'App',
