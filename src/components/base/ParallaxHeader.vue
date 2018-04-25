@@ -23,12 +23,18 @@
       return {
       }
     },
-    computed: mapState([
-      'drawer',
-      'offline'
-    ]),
+    computed: {
+      ...mapState('base', [
+        'drawer'
+      ]),
+
+      ...mapState([
+        'offline'
+      ])
+    },
+
     methods: {
-      ...mapActions([
+      ...mapActions('base', [
         'toggleDrawer'
       ]),
       setClass () {

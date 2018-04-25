@@ -1,5 +1,3 @@
-export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
-export const SET_DRAWER = 'SET_DRAWER'
 export const SET_NEWS = 'SET_NEWS'
 export const SET_CATEGORY = 'SET_CATEGORY'
 export const SET_ARTICLE = 'SET_ARTICLE'

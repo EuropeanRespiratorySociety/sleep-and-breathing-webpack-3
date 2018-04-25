@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Category from '@/components/Category'
-import Home from '@/components/Home'
-import Article from '@/components/Article'
-import P from '@/components/PracticalInformation'
+import Category from '@/components/widgets/Category'
+import Home from '@/components/widgets/Home'
+import Article from '@/components/widgets/Article'
+import P from '@/components/widgets/PracticalInformation'
 
 // import store from '../vuex/store'
 

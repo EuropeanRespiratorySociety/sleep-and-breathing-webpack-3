@@ -78,14 +78,14 @@
       }
     },
     methods: {
-      ...mapActions([
+      ...mapActions('base', [
         'setDrawer'
       ])
     },
     computed: {
       drawer: {
         get: function () {
-          return this.$store.state.drawer
+          return this.$store.state.base.drawer
         },
         set: function (value) {
           this.setDrawer(value)

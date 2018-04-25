@@ -54,9 +54,9 @@
 <script>
   import { mapActions } from 'vuex'
   // import * as config from '../../config'
-  import Ads from './widgets/Ads'
-  import OrganisingCommittee from './widgets/OrganisingCommittee'
-  import ImportantDates from './widgets/ImportantDates'
+  import Ads from './Ads'
+  import OrganisingCommittee from '../OrganisingCommittee'
+  import ImportantDates from '../ImportantDates'
 
   export default {
     name: 'Home',
@@ -122,7 +122,7 @@
 </script>
 
 <style lang="stylus">
-  @import '../stylus/main'
+  @import '../../stylus/main'
   .published {
     font-size:18px!important;
     padding-right:5px;

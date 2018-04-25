@@ -42,8 +42,8 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import OrganisingCommittee from './widgets/OrganisingCommittee'
-  import ImportantDates from './widgets/ImportantDates'
+  import OrganisingCommittee from '../OrganisingCommittee'
+  import ImportantDates from '../ImportantDates'
 
   export default {
     name: 'practical-information',
@@ -98,7 +98,7 @@
 </script>
 
 <style lang="stylus">
-  @import '../stylus/main'
+  @import '../../stylus/main'
   .published {
     font-size:18px!important;
     padding-right:5px;
