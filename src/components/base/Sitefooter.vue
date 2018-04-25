@@ -1,6 +1,6 @@
 <template>
   <v-bottom-nav app :value="true" :active.sync="e1">
-      <!--<v-btn flat color="teal" value="recent">
+    <!--<v-btn flat color="teal" value="recent">
         <span>Recent</span>
         <v-icon>history</v-icon>
       </v-btn>
